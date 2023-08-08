@@ -167,7 +167,7 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
         {...attributes}
       >
         <div className='h-1/3 bg-[#212529] group-hover:text-primary-dark group-hover:bg-[#171a1c] transition text-white flex justify-start items-start py-4 px-4 pr-2'>
-          <div className="flex-1 text-base">
+          <div className="flex-1 text-base line-clamp-2">
             {notebook?.title}
           </div>
           <div onClick={(e) => e.stopPropagation()}>
