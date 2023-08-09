@@ -1,91 +1,66 @@
 import { createEntityAdapter, createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { NotebookType as Notebook } from '@/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { supabase } from '@/utils/supabaseClient'
+import * as notebooksAPI from '@/supabase/notebooksAPI'
 
 export const fetchNotebooks = createAsyncThunk('notebooks/fetchNotebooks', 
 async(_, { rejectWithValue }) => {
-  const { data, error } = await supabase
-  .from('notebooks')
-  .select('*')
-  
-  if (error) {
+  try {
+    const data = await notebooksAPI.fetchNotebooks()
+    return data
+  } catch(error) {
     console.log('Failed to fetch notebooks: ', error);
     rejectWithValue('Failed to fetch notebooks. Please try again.')
     throw error
   }
-  return data
 })
 
 export const createNotebook = createAsyncThunk('notebooks/createNotebook',
 async({ title, color } : { title: string, color: string}, { rejectWithValue }) => {
-  const { data: { user } } = await supabase.auth.getUser()
-  const { data, error } = await supabase
-  .from('notebooks')
-  .insert({ 
-    user_id: user?.id,
-    title: title, 
-    color: color
-  })
-  .select()
-
-  if (error) {
+  try {
+    const data = await notebooksAPI.createNotebook({ title, color })
+    return data
+  } catch(error) {
     console.log('Failed to create notebook: ', error);
     rejectWithValue('Failed to create notebook. Please try again.')
     throw error
   }
-  return data
 })
 
 export const updateNotebook = createAsyncThunk('notebooks/updateNotebook', 
 async({ id, title, color } : { id: number, title: string, color: string}, { rejectWithValue }) => {
-  const { data, error } = await supabase
-  .from('notebooks')
-  .update({ title: title, color: color })
-  .eq('id', id)
-  .select()
-
-  if (error) {
+  try {
+    const data = await notebooksAPI.updateNotebook({ id, title, color })
+    return data
+  } catch(error) {
     console.log('Failed to update notebook: ', error);
     rejectWithValue('Failed to update notebook. Please try again.')
     throw error
   }
-  return data
 })
 
 export const deleteNotebook = createAsyncThunk('notebooks/deleteNotebook',
 async({ id } : { id: number }, { rejectWithValue }) => {
-  const { error } = await supabase
-  .from('notebooks')
-  .delete()
-  .eq('id', id)
-
-  if (error) {
+  try {
+    const data = await notebooksAPI.deleteNotebook({ id })
+    return data
+  } catch(error) {
     console.log('Failed to delete notebook: ', error);
     rejectWithValue('Failed to delete notebook. Please try again.')
     throw error
   }
-  return id
 })
 
 export const reorderNotebooks = createAsyncThunk('notebooks/reorderNotebooks',
 async(orderedNotebooks : Notebook[], { rejectWithValue }) => {
-  // Update the orderIndex of each notebook
-  const notebooks = orderedNotebooks.map((notebook, index) => ({
-    ...notebook,
-    orderIndex: index
-  }));
-
-  const { error } = await supabase
-  .from('notebooks')
-  .upsert(notebooks)
-
-  if (error) {
+  try {
+    const updatedNotebooks = await notebooksAPI.reorderNotebooks(orderedNotebooks) // Returns
+    return updatedNotebooks
+  } catch(error) {
     console.log('Failed to reorder notebooks: ', error);
     rejectWithValue('Failed to reorder notebooks. Please try again.')
     throw error
   }
-  return notebooks
 })
 
 export const notebooksAdapter = createEntityAdapter<Notebook>({
