@@ -33,7 +33,6 @@ type NotebookInputs = {
 }
 
 const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
-  // Sortable Element properties with Radix UI
   const {
     attributes,
     listeners,
