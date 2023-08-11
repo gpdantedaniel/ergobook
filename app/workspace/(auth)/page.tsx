@@ -6,8 +6,16 @@ const Workspace = () => {
   return (
     <div className="h-full flex flex-col">
       <Header/>
-      <main className='flex-1 flex w-full overflow-hidden overflow-y-auto bg-[#F8CF50]/20 pt-20 justify-center'>
-        <div className='w-10/12'>
+      <main className='
+        w-full pt-6 md:pt-20
+        flex-1 flex justify-center
+        overflow-hidden overflow-y-auto 
+        bg-[#F8CF50]/20'
+      >
+        <div className='
+          px-4 md:px-0
+          w-full md:w-10/12'
+        >
           <div className='pb-6'>
             <h1 className='text-2xl'>
               My Notebooks
@@ -15,7 +23,6 @@ const Workspace = () => {
           </div>
           <div className='flex gap-6 pb-20 justify-between flex-wrap'>
             <NotebookBrowser/>
-            
           </div>
         </div>
       </main>

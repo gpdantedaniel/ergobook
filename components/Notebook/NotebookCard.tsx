@@ -156,7 +156,17 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
 
       <li
         onClick={openNotebook} 
-        className={`h-64 w-48 rounded-lg overflow-hidden cursor-pointer flex-shrink-0 group active:opacity-90`}
+        className='
+          border-2 border-slate-200 md:border-none
+          w-full md:w-48 md:h-64
+          flex-shrink-0
+          active:opacity-90
+          rounded-lg
+          overflow-hidden
+          cursor-pointer
+          flex md:block
+          justify-end
+          group'
         ref={setNodeRef}
         style={{ 
           backgroundColor: notebook.color,
@@ -165,22 +175,42 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
         }}
         {...attributes}
       >
-        <div className='h-1/3 bg-[#212529] group-hover:text-primary-dark group-hover:bg-[#171a1c] transition text-white flex justify-start items-start py-4 px-4 pr-2'>
-          <div className="flex-1 text-base line-clamp-2">
+        <div className='
+          h-full md:h-1/3
+          w-11/12 md:w-full
+          py-4 px-4 pr-2         
+          flex justify-start items-start
+        bg-white md:bg-[#212529]
+         md:group-hover:bg-[#171a1c] transition'
+        >
+          <div className="
+          text-black md:text-white md:group-hover:text-primary-dark
+            flex-1 text-base line-clamp-2"
+          >
             {notebook?.title}
           </div>
           <div onClick={(e) => e.stopPropagation()}>
             <DropdownMenu.Root >
               <DropdownMenu.Portal>
-                <DropdownMenu.Content className='text-black fixed flex-col bg-white p-3 rounded-lg drop-shadow-md min-w-[220px] gap-2'>
+                <DropdownMenu.Content
+                  collisionPadding={16}
+                  className='
+                    md:max-w-[250px] p-3
+                    flex flex-col gap-1
+                    bg-white text-black
+                    border border-slate-300
+                    rounded-lg 
+                    drop-shadow-md 
+                  '
+                >
                   <DropdownMenu.Item onSelect={() => setEditOpen(true)} className='outline-none'>
-                    <div className='flex gap-2 items-center justify-between cursor-pointer hover:bg-[#93E9BE]/50 transition rounded-md p-1 px-2'>
+                    <div className='flex gap-5 items-center justify-between cursor-pointer hover:bg-[#93E9BE]/50 transition rounded-md p-1 px-2'>
                       Edit Notebook
                       <BsPencil size={20}/>
                     </div>
                   </DropdownMenu.Item>
                   <DropdownMenu.Item onSelect={() => setDeleteOpen(true) } className='outline-none'>
-                    <div className='flex gap-2 items-center justify-between cursor-pointer hover:bg-[#93E9BE]/50 transition rounded-md p-1 px-2'>
+                    <div className='flex gap-5 items-center justify-between cursor-pointer hover:bg-[#93E9BE]/50 transition rounded-md p-1 px-2'>
                       Delete Notebook
                       <BsTrash size={20}/>
                     </div>
@@ -189,17 +219,19 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
               </DropdownMenu.Portal>
               <DropdownMenu.Trigger className='outline-none'>
                 <div className='bg-transparent rounded-full hover:bg-slate-200/20 transition p-1'>
-                  <BsThreeDotsVertical size={20} className='text-white'/>
+                  <BsThreeDotsVertical size={20} className='
+                  text-black md:text-white'/>
                 </div>
               </DropdownMenu.Trigger>       
             </DropdownMenu.Root>     
           </div>
         </div>
-        <div className='flex-1 flex h-2/3 justify-center items-end'>
+        <div className='flex md:h-2/3 justify-center items-end'>
           <div
             onClick={(e) => e.stopPropagation()}
             {...listeners} 
             className='
+              hidden md:block
               bg-transparent 
               rounded-full 
              hover:bg-white/50 

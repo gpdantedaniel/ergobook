@@ -88,27 +88,24 @@ const NotebookCreateCard = () => {
         </form>
       </CustomDialog> 
     
-      <div 
+      <li 
         onClick={() => setCreateOpen(true)}
         className='
-          h-64 w-48 
+          w-full md:w-48 md:h-64
+          p-4 gap-2
+          border border-black border-dashed 
+          flex flex-row md:flex-col items-center justify-center
+          hover:bg-slate-100/50 
+          hover:drop-shadow-md transition
+          text-base text-center 
           rounded-lg 
           overflow-hidden 
           cursor-pointer 
-          border 
-          border-black border-dashed 
-          flex flex-col items-center justify-center
-          p-4 gap-2 
-          text-center 
-          hover:bg-slate-100/50 
-          hover:drop-shadow-md 
-          transition
-          text-base  
         '
       >
         <BsPlusCircle size={24} className='text-black'/>
         Create a new notebook
-      </div>
+      </li>
     </>
     
   )

@@ -64,19 +64,15 @@ const ColorDropdown = ({
       </DropdownMenu.Trigger>
     
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className='
-          max-h-[300px] 
-          overflow-y-auto 
-          bg-white
-          text-black 
-          fixed 
-          flex-col 
-          p-2 
-          rounded-lg
-          drop-shadow-md 
-          border 
-          border-neutral-300 
-          min-w-[220px]'
+        <DropdownMenu.Content 
+          collisionPadding={16}
+          className='
+            min-w-[220px] max-h-[300px] p-2
+            bg-white text-black 
+            border border-neutral-300 rounded-lg
+            overflow-y-auto          
+            drop-shadow-md 
+          '
         >
           {colors.map((color, i) => (
             <DropdownMenu.Item 

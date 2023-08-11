@@ -25,8 +25,7 @@ const CustomAlert: React.FC<CustomAlertProps> = (
           border-neutral-300 
             top-[50%] 
             left-[50%] 
-            md:w-[90vw] 
-            md:max-w-[450px] 
+            w-[90vw] max-w-[450px] 
             translate-x-[-50%] 
             translate-y-[-50%] 
             rounded-md

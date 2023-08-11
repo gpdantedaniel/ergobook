@@ -1,4 +1,5 @@
 import { BsPersonCircle } from 'react-icons/bs'
+import { AiOutlineMenu } from 'react-icons/ai'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 
@@ -8,9 +9,12 @@ const Header = async () => {
 
   return (
     <div className='w-full h-16 flex justify-center border-b border-neutral-500'>
-      <div className='w-10/12 flex items-center justify-between'>
+      <div className='w-full md:w-10/12 px-4 md:px-0 flex items-center justify-start gap-3 md:gap-0 md:justify-between'>
+        <div className='block md:hidden'>
+          <AiOutlineMenu size={22}/>
+        </div>
         <div className='font-source-serif text-2xl'>Ergobook</div>
-        <div className='flex items-center gap-3 cursor-pointer'>
+        <div className='hidden md:flex items-center gap-3 cursor-pointer'>
           <div className='text-base'>
             {user?.email}
           </div>

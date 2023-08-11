@@ -46,7 +46,18 @@ const NotebookBrowser = () => {
 
   return (
     <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-      <ul className='grid gap-7 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 flex-shrink-0 '>
+      <ul className='
+        w-full 
+        md:w-auto
+        grid 
+        gap-2 md:gap-7 
+        grid-cols-1
+        sm:grid-cols-2 
+        md:grid-cols-3 
+        lg:grid-cols-4 
+        xl:grid-cols-5 
+        flex-shrink-0'
+      >
         <SortableContext items={notebooks} >
           {notebooks.map((notebook) => (
             <NotebookCard 
