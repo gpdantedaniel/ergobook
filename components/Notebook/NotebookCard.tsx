@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation"
 import { ColorItem, NotebookType } from "@/types"
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
-import * as AlertDialog from '@radix-ui/react-alert-dialog'
 
 import { useForm, SubmitHandler } from "react-hook-form"
 import toast from 'react-hot-toast'
@@ -22,6 +21,7 @@ import CustomDialog from "../CustomDialog"
 import Input from "../Input"
 import ColorDropdown from "../ColorDropdown"
 import CustomAlert from "../CustomAlert"
+import CustomDropdown from "../CustomDropdown"
 
 interface NotebookCardProps {
   notebook: NotebookType,
@@ -190,40 +190,25 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
             {notebook?.title}
           </div>
           <div onClick={(e) => e.stopPropagation()}>
-            <DropdownMenu.Root >
-              <DropdownMenu.Portal>
-                <DropdownMenu.Content
-                  collisionPadding={16}
-                  className='
-                    md:max-w-[250px] p-3
-                    flex flex-col gap-1
-                    bg-white text-black
-                    border border-slate-300
-                    rounded-lg 
-                    drop-shadow-md 
-                  '
-                >
-                  <DropdownMenu.Item onSelect={() => setEditOpen(true)} className='outline-none'>
-                    <div className='flex gap-5 items-center justify-between cursor-pointer hover:bg-[#93E9BE]/50 transition rounded-md p-1 px-2'>
-                      Edit Notebook
-                      <BsPencil size={20}/>
-                    </div>
-                  </DropdownMenu.Item>
-                  <DropdownMenu.Item onSelect={() => setDeleteOpen(true) } className='outline-none'>
-                    <div className='flex gap-5 items-center justify-between cursor-pointer hover:bg-[#93E9BE]/50 transition rounded-md p-1 px-2'>
-                      Delete Notebook
-                      <BsTrash size={20}/>
-                    </div>
-                  </DropdownMenu.Item>
-                </DropdownMenu.Content>
-              </DropdownMenu.Portal>
-              <DropdownMenu.Trigger className='outline-none'>
-                <div className='bg-transparent rounded-full hover:bg-slate-200/20 transition p-1'>
-                  <BsThreeDotsVertical size={20} className='
-                  text-black md:text-white'/>
-                </div>
-              </DropdownMenu.Trigger>       
-            </DropdownMenu.Root>     
+            <CustomDropdown
+              dropdownActions={[
+                {
+                  name: 'Edit Notebook',
+                  icon: <BsPencil size={20}/>,
+                  onClick: () => setEditOpen(true)
+                },
+                {
+                  name: 'Delete Notebook',
+                  icon: <BsTrash size={20}/>,
+                  onClick: () => setDeleteOpen(true)
+                }
+              ]}
+            >
+              <div className='bg-transparent rounded-full hover:bg-slate-200/20 transition p-1'>
+                <BsThreeDotsVertical size={20} className='
+                text-black md:text-white'/>
+              </div>
+            </CustomDropdown>
           </div>
         </div>
         <div className='flex md:h-2/3 justify-center items-end'>
@@ -252,9 +237,3 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
 }
 
 export default NotebookCard
-
-/*
-inline-block
-opacity-0
-group-hover:opacity-100
-*/
