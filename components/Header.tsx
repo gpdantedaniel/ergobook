@@ -8,7 +8,7 @@ const Header = async () => {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <div className='w-full h-16 flex justify-center border-b border-neutral-500'>
+    <div className='fixed z-50 w-full h-16 flex justify-center border-b border-neutral-500 backdrop-blur-md bg-white/30'>
       <div className='w-full md:w-10/12 px-4 md:px-0 flex items-center justify-start gap-3 md:gap-0 md:justify-between'>
         <div className='block md:hidden'>
           <AiOutlineMenu size={22}/>

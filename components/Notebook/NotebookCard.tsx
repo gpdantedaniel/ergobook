@@ -157,7 +157,7 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
       <li
         onClick={openNotebook} 
         className='
-          border-2 border-slate-200 md:border-none
+          border border-gray-300
           w-full md:w-48 md:h-64
           flex-shrink-0
           active:opacity-90
@@ -166,7 +166,9 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
           cursor-pointer
           flex md:block
           justify-end
-          group'
+          group
+          drop-shadow-md
+        '
         ref={setNodeRef}
         style={{ 
           backgroundColor: notebook.color,
@@ -176,15 +178,17 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
         {...attributes}
       >
         <div className='
-          h-full md:h-1/3
-          w-11/12 md:w-full
-          py-4 px-4 pr-2         
-          flex justify-start items-start
-        bg-white md:bg-[#212529]
-         md:group-hover:bg-[#171a1c] transition'
+            h-full md:h-1/3
+            w-11/12 md:w-full
+            py-4 px-4 pr-2         
+            flex justify-start items-start
+          bg-white/90
+          md:group-hover:bg-slate-200 
+            transition
+         '
         >
           <div className="
-          text-black md:text-white md:group-hover:text-primary-dark
+          text-black md:text-black 
             flex-1 text-base line-clamp-2"
           >
             {notebook?.title}
@@ -206,7 +210,7 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
             >
               <div className='bg-transparent rounded-full hover:bg-slate-200/20 transition p-1'>
                 <BsThreeDotsVertical size={20} className='
-                text-black md:text-white'/>
+                text-black md:text-black'/>
               </div>
             </CustomDropdown>
           </div>

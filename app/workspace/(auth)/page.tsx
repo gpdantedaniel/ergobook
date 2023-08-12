@@ -7,10 +7,11 @@ const Workspace = () => {
     <div className="h-full flex flex-col">
       <Header/>
       <main className='
-        w-full pt-6 md:pt-20
-        flex-1 flex justify-center
-        overflow-hidden overflow-y-auto 
-        bg-[#F8CF50]/20'
+          w-full pt-24 md:pt-40
+          flex-1 flex justify-center
+          overflow-hidden overflow-y-auto 
+        bg-white
+        '
       >
         <div className='
           px-4 md:px-0
