@@ -11,13 +11,14 @@ import NotebookCreateCard from './Notebook/NotebookCreateCard'
 
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { arrayMove, SortableContext } from '@dnd-kit/sortable';
+import NotebookCardLoading from './Notebook/NotebookCardLoading'
 
 const NotebookBrowser = () => {
-
-  console.log('notebooks: ', store.getState().notebooks)
-
+  const loading = useSelector((state: RootState) => state.notebooks.loading)
   const notebooks = useSelector(notebooksSelectors.selectAll)
   const dispatch = useDispatch<AppDispatch>()
+
+  console.log('notebooks: ', store.getState().notebooks)
 
   useEffect(() => {
     dispatch(fetchNotebooks())
@@ -59,13 +60,22 @@ const NotebookBrowser = () => {
         flex-shrink-0'
       >
         <SortableContext items={notebooks} >
-          {notebooks.map((notebook) => (
-            <NotebookCard 
-              key={notebook.id} 
-              notebook={notebook}
-            />
+          { !loading ? (
+            <>
+              {notebooks.map((notebook) => (
+                <NotebookCard 
+                  key={notebook.id} 
+                  notebook={notebook}
+                />
+              ))}
+
+              <NotebookCreateCard/>
+            </>
+          ) : (
+            Array(8).fill(0).map((_, index) => (
+              <NotebookCardLoading/>
+            )
           ))}
-          <NotebookCreateCard/>
           {/* <div className=' bg-yellow-500 rounded-md  row-start-1 row-end-3 col-start-6 col-end-6 col-span-2'></div> */}
         </SortableContext>
       </ul>
@@ -74,3 +84,9 @@ const NotebookBrowser = () => {
 }
 
 export default NotebookBrowser
+
+/*
+Array(8).fill(0).map((_, index) => (
+  <NotebookCardLoading key={index}/>
+))
+*/

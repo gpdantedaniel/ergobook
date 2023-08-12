@@ -71,11 +71,13 @@ export const notebooksAdapter = createEntityAdapter<Notebook>({
 type NotebooksEntitiesState = ReturnType<typeof notebooksAdapter.getInitialState>
 interface NotebooksState extends NotebooksEntitiesState {
   backup: NotebooksEntitiesState | null;
+  loading: boolean;
 }
 
 const initialState: NotebooksState = {
   ...notebooksAdapter.getInitialState(),
-  backup: null
+  backup: null,
+  loading: true // A fetch operation happens immediately on NotebooksBrowser mount
 }
 
 // Make sure to define CRUD actions for each slice
@@ -104,8 +106,19 @@ export const notebooksSlice = createSlice({
   },
 
   extraReducers: (builder) => {builder
+
+    .addCase(fetchNotebooks.pending, (state) => {
+      state.loading = true
+    })
+
     .addCase(fetchNotebooks.fulfilled, (state, action) => {
       notebooksAdapter.setAll(state, action.payload)
+      state.loading = false
+    })
+
+    // TODO: Handle errors and notifications
+    .addCase(fetchNotebooks.rejected, (state) => {
+      state.loading = false
     })
 
     .addCase(createNotebook.fulfilled, (state, action) => {
