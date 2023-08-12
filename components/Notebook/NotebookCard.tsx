@@ -208,7 +208,7 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
                 }
               ]}
             >
-              <div className='bg-transparent rounded-full hover:bg-slate-200/20 transition p-1'>
+              <div className='bg-transparent rounded-full hover:bg-white transition p-1'>
                 <BsThreeDotsVertical size={20} className='
                 text-black md:text-black'/>
               </div>
