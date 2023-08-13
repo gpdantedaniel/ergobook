@@ -16,9 +16,17 @@ async(_, { rejectWithValue }) => {
 })
 
 export const createNotebook = createAsyncThunk('notebooks/createNotebook',
-async({ title, color } : { title: string, color: string}, { rejectWithValue }) => {
+async({ title, color } : { title: string, color: string}, { getState, rejectWithValue }) => {
   try {
-    const data = await notebooksAPI.createNotebook({ title, color })
+    const { notebooks: { entities } } = getState() as { notebooks: NotebooksState }
+    const highestOrderIndex = Math.max(
+      ...Object.values(entities)
+      .filter((notebook): notebook is Notebook => notebook !== undefined)
+      .map((notebook: Notebook) => notebook.orderIndex)
+    , 0)
+
+    const orderIndex = highestOrderIndex + 1 // The new notebook will be the last one
+    const data = await notebooksAPI.createNotebook({ title, color, orderIndex })
     return data
   } catch(error) {
     console.log('Failed to create notebook: ', error);

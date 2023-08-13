@@ -11,7 +11,7 @@ export const fetchNotebooks = async () => {
 }
 
 export const createNotebook = async (
-  { title, color } : { title: string, color: string}
+  { title, color, orderIndex } : { title: string, color: string, orderIndex: number }
 ) => {
   const { data: { user } } = await supabase.auth.getUser()
   const { data, error } = await supabase
@@ -19,7 +19,8 @@ export const createNotebook = async (
   .insert({
     user_id: user?.id,
     title: title,
-    color: color
+    color: color,
+    orderIndex: orderIndex
   })
   .select()
 
