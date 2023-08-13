@@ -2,12 +2,22 @@
 import { Provider } from 'react-redux'
 import { store } from '@/redux/notebooksStore'
 import { ThemeProvider } from 'next-themes'
+import Header from '@/components/Header'
 
 const layout = ({ children } : { children: React.ReactNode}) => {
   return (
     <ThemeProvider attribute='class'>
       <Provider store={store}>
-        <div className='flex-1 h-full'>
+        <div 
+          className='
+            theme-background
+            w-screen h-screen 
+            overflow-x-hidden 
+            overflow-y-auto
+            relative
+          '
+        >
+          <Header/>
           { children }
         </div>
       </Provider>
@@ -15,5 +25,5 @@ const layout = ({ children } : { children: React.ReactNode}) => {
     
   )
 }
-
+ 
 export default layout

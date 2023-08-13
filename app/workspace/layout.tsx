@@ -12,9 +12,9 @@ const WorkspaceLayout = async ({ children } : { children: React.ReactNode }) => 
   if (!user) redirect('/login')
 
   return (
-    <div className='flex-1 h-full'>
+    <>
       { children }
-    </div>
+    </>
   )
 }
 

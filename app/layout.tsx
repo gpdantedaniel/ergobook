@@ -11,9 +11,7 @@ export default function RootLayout({ children } : { children: React.ReactNode })
     <html lang="en">
       <body>
         <ToastProvider/>
-        <div className='w-screen h-screen flex-col'>
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   )

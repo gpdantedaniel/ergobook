@@ -1,22 +1,23 @@
+'use client'
+
 import { BsPersonCircle } from 'react-icons/bs'
 import { AiOutlineMenu } from 'react-icons/ai'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+// import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+// import { cookies } from 'next/headers'
 import ThemeButton from './ThemeButton'
 
 const Header = async () => {
-  const supabase = createServerComponentClient({ cookies })
-  const { data: { user } } = await supabase.auth.getUser()
+  // const supabase = createServerComponentClient({ cookies })
+  // const { data: { user } } = await supabase.auth.getUser()
 
   return (
     <div 
       className='
         theme-background-glass
-        theme-border
-        fixed z-50 
-        w-full h-16 
-        flex justify-center 
-        border-b
+        theme-border border-b
+        w-full h-16         
+        sticky top-0 z-10 flex-shrink-0
+        flex justify-center  
       '
     >
       <div className='
@@ -32,7 +33,7 @@ const Header = async () => {
         </div>
         <div className='flex items-center gap-3 cursor-pointer'>
           <div className='hidden md:flex items-center gap-3 text-base'>
-            {user?.email}
+            EMAIL
             <BsPersonCircle size={22}/>
           </div>
           <ThemeButton/>

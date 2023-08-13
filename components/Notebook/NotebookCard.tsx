@@ -181,7 +181,7 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
             py-4 px-4 pr-2         
             flex justify-start items-start
             bg-white/90 dark:bg-neutral-900
-            md:group-hover:bg-slate-200 dark:md:group-hover:bg-neutral-900
+            md:group-hover:bg-slate-200 dark:md:group-hover:bg-neutral-800
             transition
          '
         >

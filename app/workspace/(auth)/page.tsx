@@ -4,36 +4,27 @@ import NotebookBrowser from '@/components/NotebookBrowser';
 
 const Workspace = () => {
   return (
-    <div className="h-full flex flex-col">
-      <Header/>
-      <main 
+  
+    <main className='
+        mx-auto
+        w-full md:w-10/12
+        pt-16 px-4 md:px-0
+      '
+    >
+      <div className='pb-6'>
+        <h1 className='theme-text-colors text-2xl'>
+          My Notebooks
+        </h1>
+      </div>
+      <div 
         className='
-          theme-background
-          flex-1 w-full pt-24 md:pt-40
-          flex justify-center
-          overflow-hidden overflow-y-auto 
+          gap-6 pb-20 
+          flex justify-between flex-wrap
         '
       >
-        <div className='
-          px-4 md:px-0
-          w-full md:w-10/12'
-        >
-          <div className='pb-6'>
-            <h1 className='theme-text-colors text-2xl'>
-              My Notebooks
-            </h1>
-          </div>
-          <div 
-            className='
-              gap-6 pb-20 
-              flex justify-between flex-wrap
-            '
-          >
-            <NotebookBrowser/>
-          </div>
-        </div>
-      </main>
-    </div>
+        <NotebookBrowser/>
+      </div>
+    </main>
   )
 }
 
