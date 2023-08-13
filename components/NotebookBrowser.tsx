@@ -73,7 +73,7 @@ const NotebookBrowser = () => {
             </>
           ) : (
             Array(8).fill(0).map((_, index) => (
-              <NotebookCardLoading/>
+              <NotebookCardLoading key={index}/>
             )
           ))}
           {/* <div className=' bg-yellow-500 rounded-md  row-start-1 row-end-3 col-start-6 col-end-6 col-span-2'></div> */}

@@ -25,15 +25,15 @@ const CustomDropdown: React.FC<CustomDropdownProps> = (
           className='
             md:max-w-[250px] p-3
             flex flex-col gap-1
-            bg-white text-black
-            border border-slate-300
+            theme-card border
+            theme-text-colors
             rounded-lg 
             drop-shadow-md 
           '
         >
           {props.dropdownActions.map((action, index) => (
             <DropdownMenu.Item key={index} onSelect={action.onClick} className='outline-none'>
-              <div className='flex gap-5 items-center justify-between cursor-pointer hover:bg-[#93E9BE]/50 transition rounded-md p-1 px-2'>
+              <div className='flex gap-5 items-center justify-between cursor-pointer hover:bg-[#93E9BE]/50 dark:hover:bg-neutral-800 transition rounded-md p-1 px-2'>
                 {action.name}
                 {action.icon}
               </div>

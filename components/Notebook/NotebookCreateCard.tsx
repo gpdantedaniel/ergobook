@@ -93,17 +93,19 @@ const NotebookCreateCard = () => {
         className='
           w-full md:w-48 md:h-64
           p-4 gap-2
-          border border-black border-dashed 
+          border
+          border-black dark:border-white border-dashed 
           flex flex-row md:flex-col items-center justify-center
-          hover:bg-slate-100/50 
+          hover:bg-slate-100 dark:hover:bg-neutral-800
           hover:drop-shadow-md transition
           text-base text-center 
           rounded-lg 
           overflow-hidden 
           cursor-pointer 
+          theme-text-colors
         '
       >
-        <BsPlusCircle size={24} className='text-black'/>
+        <BsPlusCircle size={24}/>
         Create a new notebook
       </li>
     </>

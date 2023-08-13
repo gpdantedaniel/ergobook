@@ -14,25 +14,23 @@ const CustomDialog: React.FC<CustomDialogProps> = (
       <Dialog.Portal>
         <Dialog.Overlay 
           className='
-            bg-neutral-200/10 
+            bg-neutral-200/10 dark:bg-black/10
             backdrop-blur-sm 
             fixed inset-0
           '
         >
           <Dialog.Content 
             className='
-            bg-white 
+              theme-card border
               fixed 
               drop-shadow-md 
-              border 
-            border-neutral-300 
               top-[50%] 
               left-[50%]
               w-[90vw] max-w-[450px] 
+              p-6 
               translate-x-[-50%] 
               translate-y-[-50%] 
               rounded-md
-              p-6 
               focus:outline-none
             '
           >
@@ -40,14 +38,14 @@ const CustomDialog: React.FC<CustomDialogProps> = (
               <BsXLg size={20} className='text-neutral-500 hover:text-neutral-700 transition cursor-pointer'/>
             </Dialog.Close>
             <Dialog.Title>
-              <div className='text-lg'>
+              <div className='text-lg theme-text-colors'>
                 <strong>
                   { title }
                 </strong>
               </div>
             </Dialog.Title>
             <Dialog.Description>
-              <div className='text-base text-neutral-700 mt-1 text-bold'>
+              <div className='text-base theme-text-colors-secondary mt-1 text-bold'>
                 { description ? description : '' }
               </div>
               
