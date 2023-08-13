@@ -44,9 +44,8 @@ const ColorDropdown = ({
           text-sm
           focus:outline-none
           focus:drop-shadow-sm
-          border-2
         focus:border-primary-light
-        border-neutral-200
+          theme-border border
           gap-2
           items-center`,
 
@@ -68,8 +67,9 @@ const ColorDropdown = ({
           collisionPadding={16}
           className='
             min-w-[220px] max-h-[300px] p-2
-            bg-white text-black 
-            border border-neutral-300 rounded-lg
+            theme-card border
+            theme-text-colors
+            rounded-lg
             overflow-y-auto          
             drop-shadow-md 
           '
@@ -78,7 +78,14 @@ const ColorDropdown = ({
             <DropdownMenu.Item 
               key={i} 
               onSelect={() => onSelectColor(color)} 
-              className='flex gap-2 py-1 px-2 items-center hover:bg-primary-light/50 transition rounded-md cursor-pointer'
+              className='
+                flex gap-2 items-center
+                py-1 px-2 
+                hover:bg-primary-light/50 dark:hover:bg-neutral-800
+                transition 
+                rounded-md 
+                cursor-pointer
+              '
             >
               <div
                 className="block w-4 h-4 rounded-full "

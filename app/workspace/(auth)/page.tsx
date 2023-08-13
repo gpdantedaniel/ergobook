@@ -6,11 +6,12 @@ const Workspace = () => {
   return (
     <div className="h-full flex flex-col">
       <Header/>
-      <main className='
-          w-full pt-24 md:pt-40
-          flex-1 flex justify-center
+      <main 
+        className='
+          theme-background
+          flex-1 w-full pt-24 md:pt-40
+          flex justify-center
           overflow-hidden overflow-y-auto 
-        bg-white
         '
       >
         <div className='
@@ -18,11 +19,16 @@ const Workspace = () => {
           w-full md:w-10/12'
         >
           <div className='pb-6'>
-            <h1 className='text-2xl'>
+            <h1 className='theme-text-colors text-2xl'>
               My Notebooks
             </h1>
           </div>
-          <div className='flex gap-6 pb-20 justify-between flex-wrap'>
+          <div 
+            className='
+              gap-6 pb-20 
+              flex justify-between flex-wrap
+            '
+          >
             <NotebookBrowser/>
           </div>
         </div>

@@ -25,13 +25,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({className, type, disabl
         disabled:opacity-50
         focus:outline-none
         focus:drop-shadow-sm
-        border-2
+        theme-border border
+        bg-white
+        dark:bg-neutral-900
         focus:border-primary-light
-        border-neutral-200
         placeholder:text-neutral-500`, 
 
         type === 'submit' && `
-        bg-primary-dark
+        bg-primary-dark dark:bg-primary-dark
         text-black 
         justify-center 
         border-none 

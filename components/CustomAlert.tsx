@@ -15,14 +15,18 @@ const CustomAlert: React.FC<CustomAlertProps> = (
   return (
     <AlertDialog.Root {...props}>
       <AlertDialog.Portal>
-        <AlertDialog.Overlay className='bg-neutral-200/10 backdrop-blur-sm fixed inset-0'/>
+        <AlertDialog.Overlay 
+          className='
+          bg-neutral-200/10 dark:bg-black/10
+          backdrop-blur-sm 
+          fixed inset-0
+          '
+        />
         <AlertDialog.Content
           className='
-          bg-white 
+            theme-card border
             fixed 
             drop-shadow-md 
-            border 
-          border-neutral-300 
             top-[50%] 
             left-[50%] 
             w-[90vw] max-w-[450px] 
@@ -44,7 +48,7 @@ const CustomAlert: React.FC<CustomAlertProps> = (
             </div>
           </AlertDialog.Title>
           <AlertDialog.Description>
-            <div className='text-base text-neutral-700 mt-1 text-bold'>
+            <div className='text-base theme-text-colors-secondary mt-1 text-bold'>
               { description ? description : '' }
             </div>
           </AlertDialog.Description>
@@ -58,12 +62,12 @@ const CustomAlert: React.FC<CustomAlertProps> = (
                 px-2 py-2
                 text-sm
                 
-                bg-red-500
+                bg-red-400
                 text-black 
                 justify-center 
                 border-none 
                 hover:drop-shadow-md 
-                hover:opacity-90
+                active:opacity-90
                 cursor-pointer
                 font-bold
               '
@@ -77,20 +81,15 @@ const CustomAlert: React.FC<CustomAlertProps> = (
                 rounded-md
                 px-2 py-2
                 text-sm
-
-                bg-white
-                border 
-                border-neutral-400 
+                theme-secondary-card border
                 justify-center 
-                hover:drop-shadow-md 
-                hover:opacity-90
+                hover:drop-shadow-sm 
+                active:opacity-90
                 cursor-pointer
                 font-bold
               '
             >
-              <strong>
-                Cancel
-              </strong>
+              Cancel
             </AlertDialog.Cancel>
           </div>
           

@@ -1,19 +1,17 @@
 import { Oval } from "react-loader-spinner"
 
 const NotebookCardLoading = () => {
+  // bg-slate-100 border-slate-200 
   return (
     <li
       className='
+        theme-secondary-card border
         w-full md:w-48 md:h-64
-        bg-slate-100 
-        border-2 border-slate-200 
         p-4 gap-3
-        rounded-lg
-        transition
         flex flex-col md:flex-col items-center justify-center
+        rounded-lg
         animate-pulse
-        text-slate-400
-        text-base
+        transition
       '
     >
       <Oval
