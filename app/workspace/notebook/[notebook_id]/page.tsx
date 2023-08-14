@@ -20,7 +20,6 @@ const Notebook: React.FC<NotebookProps> = ({ params }) => {
     
     <div className="h-full flex flex-col">
       <div className='bg-[#FFEFBF]'>
-        <Header/>
       </div>
       
       {/* Main Content */}

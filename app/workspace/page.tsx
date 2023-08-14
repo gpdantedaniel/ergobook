@@ -1,5 +1,5 @@
 
-import Header from '../../../components/Header'
+import Header from '../../components/Header'
 import NotebookBrowser from '@/components/NotebookBrowser';
 
 const Workspace = () => {

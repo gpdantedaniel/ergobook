@@ -1,3 +1,5 @@
+import Header from '@/components/Header'
+import Providers from '@/providers/Providers'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
@@ -13,7 +15,21 @@ const WorkspaceLayout = async ({ children } : { children: React.ReactNode }) => 
 
   return (
     <>
-      { children }
+      <Providers>
+        <div 
+          className='
+            theme-background
+            w-screen h-screen 
+            overflow-x-hidden 
+            overflow-y-auto
+            relative
+            flex flex-col
+          '
+        >
+          <Header/>
+          { children }
+        </div>
+      </Providers>
     </>
   )
 }

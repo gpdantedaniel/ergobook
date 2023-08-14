@@ -6,7 +6,7 @@ import { AiOutlineMenu } from 'react-icons/ai'
 // import { cookies } from 'next/headers'
 import ThemeButton from './ThemeButton'
 
-const Header = async () => {
+const Header = () => {
   // const supabase = createServerComponentClient({ cookies })
   // const { data: { user } } = await supabase.auth.getUser()
 

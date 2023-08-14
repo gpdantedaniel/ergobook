@@ -2,7 +2,7 @@ import './globals.css'
 import ToastProvider from '@/providers/ToastProvider'
 
 export const metadata = {
-  title: 'Ergobook',
+  title: 'Ergobook | Fantastic Notes',
   description: 'For better and faster note-taking',
 }
 
