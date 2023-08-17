@@ -28,7 +28,8 @@ const CustomDropdown: React.FC<CustomDropdownProps> = (
             theme-card border
             theme-text-colors
             rounded-lg 
-            drop-shadow-md 
+            drop-shadow-md
+            z-40
           '
         >
           {props.dropdownActions.map((action, index) => (

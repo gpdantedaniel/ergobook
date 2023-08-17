@@ -19,7 +19,7 @@ const CustomAlert: React.FC<CustomAlertProps> = (
           className='
           bg-neutral-200/10 dark:bg-black/10
           backdrop-blur-sm 
-          fixed inset-0
+          fixed inset-0 z-30
           '
         />
         <AlertDialog.Content

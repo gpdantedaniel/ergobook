@@ -164,7 +164,6 @@ const NotebookCard: React.FC<NotebookCardProps> = ({ notebook }) => {
           overflow-hidden
           cursor-pointer
           flex flex-row-reverse justify-end flex-shrink-0 md:block          
-          drop-shadow-md
           group
         '
         ref={setNodeRef}
