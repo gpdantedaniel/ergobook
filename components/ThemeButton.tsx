@@ -1,14 +1,13 @@
-'use client'
+"use client";
 
-import * as Switch from '@radix-ui/react-switch';
+import * as Switch from "@radix-ui/react-switch";
 import { useTheme } from "next-themes";
 
 const ThemeButton = () => {
-  const { systemTheme, theme, setTheme } = useTheme()
-  const currentTheme = theme === 'system' ? systemTheme : theme;
+  const { systemTheme, theme, setTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
-  const thumbTranslate = currentTheme === 'dark' ? 'translate-x-6' : 'translate-x-0';
-  const thumbBgColor = currentTheme === 'dark' ? 'bg-gray-900' : 'bg-white';
+  currentTheme === "dark" ? "translate-x-6" : "translate-x-0";
 
   return (
     <Switch.Root
@@ -21,11 +20,12 @@ const ThemeButton = () => {
         bg-gray-300 dark:bg-gray-700
         overflow-hidden
       `}
-      onCheckedChange={() => theme == "dark"? setTheme('light'): setTheme("dark")}
+      onCheckedChange={() =>
+        theme == "dark" ? setTheme("light") : setTheme("dark")
+      }
     >
-      
       <div
-        className='
+        className="
           w-5 h-5 
           absolute
           top-0.5 left-1
@@ -36,12 +36,13 @@ const ThemeButton = () => {
           translate-x-7 dark:translate-x-0
           flex justify-center items-center
           text-lg
-        '
+        "
       >
-        {currentTheme === 'dark' ? '🌙' : '🌞'}
+        {currentTheme === "dark" ? "🌙" : "🌞"}
       </div>
 
-      <Switch.Thumb className={`
+      <Switch.Thumb
+        className={`
           block w-5 h-5  
           absolute
           top-0.5 left-0.5
@@ -57,7 +58,7 @@ const ThemeButton = () => {
         `}
       />
     </Switch.Root>
-  )
-}
+  );
+};
 
-export default ThemeButton
+export default ThemeButton;

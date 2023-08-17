@@ -1,10 +1,9 @@
-import { Oval } from "react-loader-spinner"
+import { Oval } from "react-loader-spinner";
 
 const NotebookCardLoading = () => {
-  // bg-slate-100 border-slate-200 
   return (
     <li
-      className='
+      className="
         theme-secondary-card border
         w-full md:w-48 md:h-64
         p-4 gap-3
@@ -12,7 +11,7 @@ const NotebookCardLoading = () => {
         rounded-lg
         animate-pulse
         transition
-      '
+      "
     >
       <Oval
         height={40}
@@ -21,46 +20,13 @@ const NotebookCardLoading = () => {
         wrapperStyle={{}}
         wrapperClass=""
         visible={true}
-        ariaLabel='oval-loading'
+        ariaLabel="oval-loading"
         secondaryColor="rgb(241 245 249)"
         strokeWidth={2}
         strokeWidthSecondary={2}
       />
     </li>
-  )
-}
+  );
+};
 
-export default NotebookCardLoading
-
-
-/*
-<div
-  className='
-    h-[50vh] md:w-48 md:h-64
-    bg-slate-100
-    p-4
-    rounded-lg
-    animate-pulse
-    col-span-full
-    row-span-2
-    flex flex-col md:flex-col items-center justify-center
-    text-slate-400
-    text-base
-    gap-3
-  '
->
-  <Oval
-    height={80}
-    width={80}
-    color="rgb(203 213 225)"
-    wrapperStyle={{}}
-    wrapperClass=""
-    visible={true}
-    ariaLabel='oval-loading'
-    secondaryColor="rgb(226 232 240)"
-    strokeWidth={2}
-    strokeWidthSecondary={2}
-  />
-  Loading...
-</div>
-*/
+export default NotebookCardLoading;

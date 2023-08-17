@@ -1,26 +1,28 @@
-import * as Dialog from '@radix-ui/react-dialog';
-import { BsX, BsXCircle, BsXLg } from 'react-icons/bs';
+import * as Dialog from "@radix-ui/react-dialog";
+import { BsXLg } from "react-icons/bs";
 
 interface CustomDialogProps extends Dialog.DialogProps {
   title: string;
   description?: string;
 }
 
-const CustomDialog: React.FC<CustomDialogProps> = (
-  { title, description, ...props }
-) => {
+const CustomDialog: React.FC<CustomDialogProps> = ({
+  title,
+  description,
+  ...props
+}) => {
   return (
     <Dialog.Root {...props}>
       <Dialog.Portal>
-        <Dialog.Overlay 
-          className='
+        <Dialog.Overlay
+          className="
             bg-neutral-200/10 dark:bg-black/10
             backdrop-blur-sm 
             fixed inset-0
-          '
+          "
         >
-          <Dialog.Content 
-            className='
+          <Dialog.Content
+            className="
               theme-card border
               fixed 
               drop-shadow-md 
@@ -32,33 +34,31 @@ const CustomDialog: React.FC<CustomDialogProps> = (
               translate-y-[-50%] 
               rounded-md
               focus:outline-none
-            '
+            "
           >
-            <Dialog.Close className='w-full flex justify-end outline-none'>
-              <BsXLg size={20} className='text-neutral-500 hover:text-neutral-700 transition cursor-pointer'/>
+            <Dialog.Close className="w-full flex justify-end outline-none">
+              <BsXLg
+                size={20}
+                className="text-neutral-500 hover:text-neutral-700 transition cursor-pointer"
+              />
             </Dialog.Close>
             <Dialog.Title>
-              <div className='text-lg theme-text-colors'>
-                <strong>
-                  { title }
-                </strong>
+              <div className="text-lg theme-text-colors">
+                <strong>{title}</strong>
               </div>
             </Dialog.Title>
             <Dialog.Description>
-              <div className='text-base theme-text-colors-secondary mt-1 text-bold'>
-                { description ? description : '' }
+              <div className="text-base theme-text-colors-secondary mt-1 text-bold">
+                {description ? description : ""}
               </div>
-              
             </Dialog.Description>
-            <hr className='border-t border-neutral-400 mt-4'/>
-            <div className=''>
-              { props.children }
-            </div>            
+            <hr className="border-t border-neutral-400 mt-4" />
+            <div className="">{props.children}</div>
           </Dialog.Content>
         </Dialog.Overlay>
       </Dialog.Portal>
     </Dialog.Root>
-  )
-}
+  );
+};
 
-export default CustomDialog
+export default CustomDialog;
