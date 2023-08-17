@@ -1,4 +1,4 @@
-export interface NotebookType {
+export interface Notebook {
   id: number,
   user_id: string,
   created_at: string,

@@ -1,4 +1,4 @@
-import { NotebookType as Notebook } from "@/types";
+import { Notebook } from "@/types";
 import { supabase } from "./supabaseClient";
 
 export const fetchNotebooks = async () => {

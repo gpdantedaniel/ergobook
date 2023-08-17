@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { ColorItem, NotebookType } from "@/types"
+import { ColorItem, Notebook } from "@/types"
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
@@ -24,7 +24,7 @@ import CustomAlert from "../CustomAlert"
 import CustomDropdown from "../CustomDropdown"
 
 interface NotebookCardProps {
-  notebook: NotebookType,
+  notebook: Notebook,
 }
 
 type NotebookInputs = {

@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { NotebookType as Notebook } from '@/types'
+import { Notebook } from '@/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import * as notebooksAPI from '@/supabase/notebooksAPI'
 
