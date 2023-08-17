@@ -16,7 +16,7 @@ type NotebookInputs = {
   color: ColorItem
 }
 
-const NotebookCreateCard = () => {
+const NotebookCardCreate = () => {
   const [createOpen, setCreateOpen] = useState<boolean>(false) 
   const [createLoading, setCreateLoading] = useState<boolean>(false)
   const dispatch = useDispatch<AppDispatch>()
@@ -113,4 +113,4 @@ const NotebookCreateCard = () => {
   )
 }
 
-export default NotebookCreateCard
+export default NotebookCardCreate

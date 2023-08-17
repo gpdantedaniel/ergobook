@@ -6,47 +6,48 @@ html,
 body,
 :root {
   height: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .theme-text-colors {
-  @apply 
-  text-slate-900 
-  dark:text-neutral-100
+  @apply text-slate-900 
+  dark:text-neutral-100;
 }
 
 .theme-text-colors-secondary {
-  @apply 
-  text-neutral-700
-  dark:text-neutral-400
+  @apply text-neutral-700
+  dark:text-neutral-400;
 }
 
-
 .theme-background {
-  @apply 
-  bg-white
-  dark:bg-neutral-900 
-  
+  @apply bg-white
+  dark:bg-neutral-900;
 }
 
 .theme-secondary-background {
-  @apply 
-  bg-slate-100
-  dark:bg-neutral-800 
+  @apply bg-slate-100
+  dark:bg-neutral-800;
 }
 
 .theme-background-glass {
-  @apply 
-  bg-white/10
+  @apply bg-white/10
   dark:bg-neutral-900/10 
-  backdrop-blur-md
+  backdrop-blur-md;
+}
 
+.theme-selectable-background {
+  @apply bg-white
+  dark:bg-neutral-900;
+}
+
+.theme-selectable-background:hover {
+  @apply bg-slate-100
+  dark:bg-neutral-800;
 }
 
 .theme-border {
-  @apply 
-  border-slate-300 
-  dark:border-neutral-700
+  @apply border-slate-300
+  dark:border-neutral-700;
 }
 
 /*
@@ -60,17 +61,24 @@ body,
 */
 
 .theme-card {
-  @apply 
-  bg-white
+  @apply bg-white
   border-gray-300 
   dark:bg-neutral-900
-  dark:border-neutral-700
+  dark:border-neutral-700;
 }
 
 .theme-secondary-card {
-  @apply 
-  bg-slate-100
+  @apply bg-slate-100
   border-slate-200 
   dark:bg-neutral-800
-  dark:border-neutral-700
+  dark:border-neutral-700;
+}
+
+.theme-hover-control {
+  @apply bg-transparent
+  hover:bg-white 
+  dark:hover:bg-white/10 
+  p-1
+  rounded-full   
+  transition;
 }
