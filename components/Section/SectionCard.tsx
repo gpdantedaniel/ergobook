@@ -55,12 +55,6 @@ const SectionCard: React.FC<SectionCardProps> = ({ section }) => {
   const openSection = () => {};
 
   const onUpdateSection: SubmitHandler<SectionInputs> = (formData) => {
-    // Return if no changes were made
-    if (getFieldState("title").isDirty === false) {
-      setEditOpen(false);
-      return null;
-    }
-
     // Disable the section card while updating
     setEditLoading(true);
 
