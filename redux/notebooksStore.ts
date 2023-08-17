@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import notebooksReducer, { notebooksAdapter } from './notebooksSlice'
+import sectionsReducer, { sectionsAdapter } from './sectionsSlice'
 
 export const store = configureStore({ 
   reducer: {
-    notebooks: notebooksReducer
+    notebooks: notebooksReducer,
+    sections: sectionsReducer
   }
 })
 
@@ -13,3 +15,4 @@ export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
 export const notebooksSelectors = notebooksAdapter.getSelectors<RootState>((state) => state.notebooks)
+export const sectionsSelectors = sectionsAdapter.getSelectors<RootState>((state) => state.sections)

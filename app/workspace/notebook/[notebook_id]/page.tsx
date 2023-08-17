@@ -1,49 +1,23 @@
-import Header from "@/components/Header"
+import SectionsBrowser from "@/components/SectionsBrowser"
 
-interface NotebookProps {
+interface NotebookViewProps {
   params: {
     notebook_id: string
   }
 }
 
-const SectionCard = () => {
+const NotebookView: React.FC<NotebookViewProps> = ({ params }) => {
+  const notebook_id: number = Number(params.notebook_id)
   return (
-    <div className='p-3 text-sm'>
-      Non-descript Section
-    </div>
-  )
-}
-
-const Notebook: React.FC<NotebookProps> = ({ params }) => {
-  // Notebook {params.notebook_id}
-  return (
-    
-    <div className="h-full flex flex-col">
-      <div className='bg-[#FFEFBF]'>
+    <>
+      <SectionsBrowser notebook_id={notebook_id}/>
+      <div className='flex-1 flex justify-center w-full ml-auto pt-16 pb-16'>
+        <div className='w-1/4 theme-text-colors'>
+          Notebook Section Content
+        </div>
       </div>
-      
-      {/* Main Content */}
-      <main className='flex-1 flex w-full overflow-hidden overflow-y-auto'>
-        <div className='h-full border border-r-black overflow-hidden w-1/6'>
-          <div className='w-full text-lg p-3'>
-            Sections
-          </div>
-          <div>
-            <SectionCard/>
-            <SectionCard/>
-            <SectionCard/>
-            <SectionCard/>
-            <SectionCard/>
-            <SectionCard/>
-            <SectionCard/>
-            <SectionCard/>
-            <SectionCard/>
-            <SectionCard/>
-          </div>
-        </div>       
-      </main>
-    </div>
+    </> 
   )
 }
 
-export default Notebook
+export default NotebookView
