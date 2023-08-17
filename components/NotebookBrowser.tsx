@@ -7,7 +7,7 @@ import { fetchNotebooks, reorderNotebooks, optimisticallyReorderNotebooks, backu
 import { notebooksSelectors } from '@/redux/notebooksStore'
 
 import NotebookCard from './Notebook/NotebookCard'
-import NotebookCreateCard from './Notebook/NotebookCreateCard'
+import NotebookCardCreate from './Notebook/NotebookCardCreate'
 
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { arrayMove, SortableContext } from '@dnd-kit/sortable';
@@ -69,7 +69,7 @@ const NotebookBrowser = () => {
                 />
               ))}
 
-              <NotebookCreateCard/>
+              <NotebookCardCreate/>
             </>
           ) : (
             Array(8).fill(0).map((_, index) => (
