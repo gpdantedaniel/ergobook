@@ -1,4 +1,4 @@
-import SectionsBrowser from "@/components/SectionsBrowser";
+import SectionsBrowser from "@/components/Section/SectionsBrowser";
 
 interface NotebookViewProps {
   params: {

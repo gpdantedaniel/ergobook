@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import {
   DndContext,
   PointerSensor,
@@ -9,7 +8,7 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import SectionCard from "./Section/SectionCard";
+import SectionCard from "./SectionCard";
 import {
   SortableContext,
   arrayMove,
@@ -27,8 +26,9 @@ import {
   optimisticallyReorderSections,
   reorderSections,
 } from "@/redux/sectionsSlice";
-import SectionCardCreate from "./Section/SectionCardCreate";
+import SectionCardCreate from "./SectionCardCreate";
 import { BsLayoutSidebar } from "react-icons/bs";
+import SectionsBrowserToggle from "./SectionsBrowserToggle";
 
 const SectionsBrowser = ({ notebook_id }: { notebook_id: number }) => {
   const [closed, setClosed] = useState<boolean>(false);
@@ -67,19 +67,8 @@ const SectionsBrowser = ({ notebook_id }: { notebook_id: number }) => {
 
   return (
     <>
-      <div
-        onClick={() => setClosed(false)}
-        className="
-        theme-background
-        theme-border border
-        p-2 rounded-md
-        theme-text-colors
-        fixed top-20 left-4 z-10
-        hover:theme-background-hover
-        cursor-pointer
-        "
-      >
-        <BsLayoutSidebar size={18} />
+      <div className="fixed top-20 left-4 z-10">
+        <SectionsBrowserToggle onClick={() => setClosed(false)} />
       </div>
       <div
         className={`
@@ -95,29 +84,15 @@ const SectionsBrowser = ({ notebook_id }: { notebook_id: number }) => {
         `}
       >
         <div
-          onClick={() => setClosed(true)}
           className="
           p-4 text-base 
           theme-background 
           theme-border border-b
-          cursor-pointer
           flex items-center justify-between
           "
         >
           Sections
-          <div
-            onClick={() => setClosed(false)}
-            className="
-            theme-background
-            theme-border border
-            p-2 rounded-md
-            theme-text-colors
-            hover:theme-background-hover
-            cursor-pointer
-            "
-          >
-            <BsLayoutSidebar size={18} />
-          </div>
+          <SectionsBrowserToggle onClick={() => setClosed(true)} />
         </div>
         {!loading ? (
           <div
